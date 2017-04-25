@@ -1,7 +1,7 @@
 var friends = require("../data/friends");
 var index = 0;
 var variance = 0;
-var testVariance;
+var testVariance = 0;
 
 module.exports = function(app) {
   app.get("/api/friends", function(req, res) {
@@ -17,9 +17,9 @@ module.exports = function(app) {
         variance = testVariance;
         index = i;
       }
+      testVariance = 0;
     }
     variance = 0;
     res.json(friends[index]);
-    console.log(friends[index]);
   });
 };
